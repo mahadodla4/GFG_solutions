@@ -20,10 +20,10 @@ class Solution{
             {
                 swap(arr[i],arr[i+1]);
             }
-            if(i%2!=0 && arr[i]>arr[i+1])
+            /*if(i%2!=0 && arr[i]>arr[i+1])
             {
                 swap(arr[i],arr[i+1]);
-            }
+            }*/
         }
         
     }
