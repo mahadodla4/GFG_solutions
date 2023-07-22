@@ -43,31 +43,36 @@ class Solution
     //Function to remove duplicates from unsorted linked list.
     Node * removeDuplicates( Node *head) 
     {
-        
-        struct Node *temp;
-        temp=head;
-        unordered_set<int>s;
-        vector<int>vc;
+        struct Node *temp=head;
+        vector<int>vec;
+        set<int>s;
         while(temp!=NULL)
         {
             if(s.find(temp->data)==s.end())
             {
                 s.insert(temp->data);
-                vc.push_back(temp->data);
+                vec.push_back(temp->data);
             }
             temp=temp->next;
         }
-        //cout << s.size() << endl;
-        temp=head;
-        struct Node* prev=NULL;
-        for(auto it:vc)
+        struct Node *head1=NULL;
+        struct Node *tail=head1;
+        for(int i=0; i<vec.size(); i++)
         {
-            temp->data = it;
-            prev=temp;
-            temp=temp->next;
+            struct Node *nn=new Node(vec[i]);
+            if(head1==NULL)
+            {
+                head1=nn;
+                tail=head1;
+            }
+            else
+            {
+                tail->next=nn;
+                tail=tail->next;
+            }
         }
-        prev->next=NULL;
-        return head;
+        return head1;
+        
     }
 };
 
