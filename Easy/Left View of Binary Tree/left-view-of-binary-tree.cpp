@@ -130,7 +130,7 @@ struct Node
 //Function to return a list containing elements of left view of the binary tree.
 vector<int> leftView(Node *root)
 {
-    vector<int>l;
+   vector<int>l;
     if(root==NULL)
     {
         return {};
