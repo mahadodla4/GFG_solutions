@@ -15,26 +15,23 @@ class Solution
         {
             return {-1};
         }
-        while(j<=n and i<n)
+        for(i=0; i<n; i++)
         {
-            if(sum<s)
+            sum+=arr[i];
+            while(sum>s and j<=i)
             {
-                sum+=arr[j];
+                sum-=arr[j];
                 j++;
-            }
-            else if(sum>s)
-            {
-                sum-=arr[i];
-                i++;
             }
             if(sum==s)
             {
-                return {i+1,j};
+                return {j+1,i+1};
             }
         }
         return {-1};
     }
 };
+
 
 //{ Driver Code Starts.
 
