@@ -7,21 +7,21 @@ using namespace std;
 
 class Solution {
   public:
-    long long maxDiamonds(int arr[], int n, int K) 
+    long long maxDiamonds(int A[], int N, int K) 
     {
+        priority_queue<int>pq;
         long long i,sum=0;
-        priority_queue<int>pq(arr,arr+n);
-        vector<int>l;
+        for(i=0; i<N; i++)
+        {
+            pq.push(A[i]);
+        }
         while(K--)
         {
             int a=pq.top();
-            l.push_back(a);
             pq.pop();
-            pq.push(a/2);
-        }
-        for(auto i:l)
-        {
-            sum+=i;
+            sum+=a;
+            int b=ceil(a/2);
+            pq.push(b);
         }
         return sum;
     }
