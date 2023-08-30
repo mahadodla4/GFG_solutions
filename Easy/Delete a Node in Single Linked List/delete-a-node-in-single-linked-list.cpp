@@ -86,30 +86,28 @@ struct Node
 /*You are required to complete below method*/
 Node* deleteNode(Node *head,int x)
 {
-    if(head==NULL)
-    {
-        return NULL;
-    }
-    if(head->next==NULL)
-    {
-        return NULL;
-    }
-    Node *temp;
-    temp=head;
+    Node* temp=head;
     int c=1;
+    if(head==NULL or head->next==NULL)
+    {
+        return NULL;
+    }
     if(x==1)
     {
         temp=temp->next;
         head=temp;
     }
-    while(temp)
+    while(temp->next!=NULL)
     {
         c++;
         if(c==x)
         {
             temp->next=temp->next->next;
         }
-        temp=temp->next;
+        else
+        {
+            temp=temp->next;
+        }
     }
     return head;
 }
