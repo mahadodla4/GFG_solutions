@@ -9,24 +9,22 @@ class Solution{
     // Function to find equilibrium point in the array.
     // a: input array
     // n: size of array
-    int equilibriumPoint(long long nums[], int n) 
+    int equilibriumPoint(long long a[], int n) 
     {
-        int i;
-        int pref[n];
-        int suf[n];
-        pref[0]=nums[0];
-        suf[n-1]=nums[n-1];
+        int pref[n],suff[n],i;
+        pref[0]=a[0];
         for(i=1; i<n; i++)
         {
-            pref[i]=pref[i-1]+nums[i];
+            pref[i]=pref[i-1]+a[i];
         }
+        suff[n-1]=a[n-1];
         for(i=n-2; i>=0; i--)
         {
-            suf[i]=suf[i+1]+nums[i];
+            suff[i]=suff[i+1]+a[i];
         }
         for(i=0; i<n; i++)
         {
-            if(pref[i]==suf[i])
+            if(pref[i]==suff[i])
             {
                 return i+1;
             }
