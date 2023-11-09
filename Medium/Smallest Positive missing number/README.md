@@ -1,4 +1,5 @@
-<h2><a href="https://practice.geeksforgeeks.org/problems/smallest-positive-missing-number-1587115621/1">Smallest Positive missing number</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">You are given an array <strong>arr</strong>[] of <strong>N</strong> integers including 0. The task is to find the smallest positive number missing from the array.</span></p>
+<h2><a href="https://practice.geeksforgeeks.org/problems/smallest-positive-missing-number-1587115621/1?page=2&category=Arrays&sortBy=submissions">Smallest Positive missing number</a></h2><h3>Difficulty Level : Medium</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">You are given an array <strong>arr</strong>[] of <strong>N</strong> integers. The task is to find the smallest positive number missing from the array.</span></p>
+<p><span style="font-size: 18px;"><strong>Note:</strong> Positive number starts from 1.</span></p>
 <p><span style="font-size: 18px;"><strong>Example 1:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input:
 </strong>N = 5
