@@ -5,16 +5,14 @@ class Solution:
     #Function to check if a string can be obtained by rotating
     #another string by exactly 2 places.
     def isRotated(self,str1,str2):
-        a1=str1[:2]
-        b1=str1[2:]
-        c1=b1+a1
-        a2=str1[:len(str1)-2]
-        b2=str1[len(str1)-2:]
-        c2=b2+a2
-        if(c2==str2 or c1==str2):
+        a=str2[:-2]
+        b=str2[-2:]
+        c=str2[:2]
+        d=str2[2:]
+        if(b+a==str1 or d+c==str1):
             return 1
-        else:
-            return 0
+        return 0
+
 
 #{ 
  # Driver Code Starts
