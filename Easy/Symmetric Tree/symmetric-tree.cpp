@@ -101,30 +101,39 @@ struct Node {
 */
 class Solution{
     public:
-    // return true/false denoting whether the tree is Symmetric or not
-    bool same(Node* root1,Node* root2)
-    {
-        if(root1==NULL and root2==NULL)
-        {
-            return true;
-        }
-        if(root1==NULL and root2!=NULL)
-        {
-            return false;
-        }
-        if(root1!=NULL and root2==NULL)
-        {
-            return false;
-        }
-        return (root1->data==root2->data) && (same(root1->left,root2->right) && same(root1->right,root2->left));
-    }
     bool isSymmetric(struct Node* root)
     {
-        if(root==NULL)
-        {
-            return true;
-        }
-	    return same(root->left,root->right);
+	    if(root==NULL)
+	    {
+	        return true;
+	    }
+	    stack<Node*>st;
+	    st.push(root->left);
+	    st.push(root->right);
+	    while(!st.empty())
+	    {
+	        Node* node1=st.top();
+	        st.pop();
+	        Node* node2=st.top();
+	        st.pop();
+	        if(node1==NULL and node2==NULL)
+	        {
+	            continue;
+	        }
+	        if(node1==NULL or node2==NULL)
+	        {
+	            return 0;
+	        }
+	        if(node1->data!=node2->data)
+	        {
+	            return 0;
+	        }
+	        st.push(node1->left);
+	        st.push(node2->right);
+	        st.push(node1->right);
+	        st.push(node2->left);
+	    }
+	    return 1;
     }
 };
 
