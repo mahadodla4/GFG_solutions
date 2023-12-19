@@ -11,17 +11,29 @@ using namespace std;
 class Solution
 {
     public:
-    //Function to find the first position with different bits.
+    string binary(int n)
+    {
+    	int i;
+    	string res;
+    	for(i=31; i>=0; i--)
+    	{
+    		res+=to_string(((n>>i)&1));
+    	}
+    	return res;
+    }
     int posOfRightMostDiffBit(int m, int n)
     {
-        for(int i=0; i<31; i++)
+        if(m==n)
         {
-            int a=m&(1<<i);
-            int b=n&(1<<i);
-            int c=(a^b);
-            if(c!=0)
+            return -1;
+        }
+        string a=binary(m);
+        string b=binary(n);
+        for(int i=31; i>=0; i--)
+        {
+            if(a[i]!=b[i])
             {
-                return i+1;
+                return 32-i;
             }
         }
         return -1;
