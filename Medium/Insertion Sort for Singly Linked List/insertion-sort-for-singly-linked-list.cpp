@@ -44,6 +44,28 @@ struct Node {
 class Solution
 {
     public:
+    void insertion_sort(vector<int>&arr,int n)
+    {
+    	int i,j,temp;
+    	for(i=1; i<n; i++)
+    	{
+    		j=i-1;
+    		while(arr[i]<arr[j])
+    		{
+    			temp=arr[i];         
+    			while(temp<arr[j])      
+    			{
+    				arr[j+1]=arr[j];
+    				arr[j]=temp;
+    				j--;
+    			}
+    		}
+    	}
+    	if(j=-1)
+    	{
+    		arr[i]=temp;
+    	}
+    }
     Node* insertionSort(struct Node* head_ref)
     {
         Node* temp=head_ref;
@@ -53,7 +75,7 @@ class Solution
             l.push_back(temp->data);
             temp=temp->next;
         }
-        sort(l.begin(),l.end());
+        insertion_sort(l,l.size());
         Node* head=NULL;
         Node* tail=head;
         for(int i=0; i<l.size(); i++)
