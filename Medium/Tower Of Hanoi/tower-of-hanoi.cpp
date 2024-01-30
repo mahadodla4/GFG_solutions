@@ -7,25 +7,21 @@ using namespace std;
 // } Driver Code Ends
 class Solution{
     public:
-    long long ans=0;
-    void t(int n, int a, int c, int b) 
+    long long cnt=0;
+    void spoiler(int N,int from,int aux,int to)
     {
-        if(n==1)
+        if(N>0)
         {
-            ans++;
-            cout<<"move disk 1 from rod "<< a <<" to rod "<< c<<endl;
-            return ;
+            spoiler(N-1,from,to,aux);
+            cout<<"move disk "<<N<<" from rod "<<from<<" to rod "<<to<<endl;
+            cnt++;
+            spoiler(N-1,aux,from,to);
         }
-        t(n-1,a,b,c);
-        cout<<"move disk "<< n<<" from rod "<< a<<" to rod "<< c<<endl;
-        ans++;
-        t(n-1,b,c,a);
     }
-
-    long long toh(int n, int a, int c, int b) 
+    long long toh(int N, int from, int to, int aux) 
     {
-        t(n,a,c,b);
-        return ans;
+        spoiler(N,from,aux,to);
+        return cnt;
     }
 
 };
