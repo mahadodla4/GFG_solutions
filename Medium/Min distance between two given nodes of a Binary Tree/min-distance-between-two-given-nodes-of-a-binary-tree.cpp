@@ -86,12 +86,6 @@ Node* buildTree(string str) {
 
 
 // } Driver Code Ends
-/* A binary tree node
-struct Node
-{
-    int data;
-    Node* left, * right;
-}; */
 
 class Solution
 {
@@ -147,6 +141,9 @@ class Solution
         return distA+distB;
     }
 };
+
+
+
 
 //{ Driver Code Starts.
 
