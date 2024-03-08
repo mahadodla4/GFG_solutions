@@ -34,13 +34,12 @@ public:
 	            values.push_back(i.first);
 	            counts.push_back(i.second);
 	        }
-	        //cout<<values[0]<<" "<<values[1]<<" "<<counts[0]<<" "<<counts[1]<<endl;
+	        if(counts[0]==1 and values[0]==1)
+	        {
+	           return 1;
+	        }
 	        if(values[1]-values[0]==1)
 	        {
-	            if(counts[1]==values[1])
-	            {
-	                return 1;
-	            }
 	            if(counts[1]==1)
 	            {
 	                return 1;
