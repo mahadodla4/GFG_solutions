@@ -1,65 +1,55 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 
 // } Driver Code Ends
-class Solution{
-
-    // Function to find the trapped water between the blocks.
-    public:
-    long long trappingWater(int arr[], int n)
-    {
-        long long i;
-        int pref_max[n],suff_max[n];
-        pref_max[0]=arr[0];
-        suff_max[n-1]=arr[n-1];
-        for(i=1; i<n; i++)
-        {
-            pref_max[i]=max(pref_max[i-1],arr[i]);
+class Solution {
+  public:
+    int maxWater(vector<int> &arr) {
+        int i,n=arr.size(),sum=0;
+        int pref[n],suf[n];
+        pref[0]=arr[0];
+        suf[n-1]=arr[n-1];
+        for(i=1; i<n; i++) {
+            pref[i]=max(pref[i-1],arr[i]);
         }
-        for(i=n-2; i>=0; i--)
-        {
-            suff_max[i]=max(suff_max[i+1],arr[i]);
+        for(i=n-2; i>=0; i--) {
+            suf[i]=max(suf[i+1],arr[i]);
         }
-        long long sum=0;
-        for(i=0; i<n; i++)
-        {
-            int val=min(pref_max[i],suff_max[i]);
-            int res=val-arr[i];
-            sum+=res;
+        for(i=0; i<n; i++) {
+            int val=min(pref[i],suf[i]);
+            int ans=val-arr[i];
+            sum+=ans;
         }
         return sum;
     }
 };
 
 //{ Driver Code Starts.
-
-int main(){
-    
+int main() {
     int t;
-    //testcases
     cin >> t;
-    
-    while(t--){
-        int n;
-        
-        //size of array
-        cin >> n;
-        
-        int a[n];
-        
-        //adding elements to the array
-        for(int i =0;i<n;i++){
-            cin >> a[i];            
+    cin.ignore();
+    while (t--) {
+        vector<int> arr;
+        string input;
+
+        // Read first array
+        getline(cin, input);
+        stringstream ss(input);
+        int number;
+        while (ss >> number) {
+            arr.push_back(number);
         }
-        Solution obj;
-        //calling trappingWater() function
-        cout << obj.trappingWater(a, n) << endl;
-        
+
+        Solution ob;
+        int res = ob.maxWater(arr);
+
+        cout << res << endl << "~" << endl;
     }
-    
     return 0;
 }
+
 // } Driver Code Ends
